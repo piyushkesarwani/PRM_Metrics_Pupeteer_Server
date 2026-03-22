@@ -153,7 +153,7 @@ function launchBrowser() {
     // });
 
     return puppeteer.launch({
-        headless: 'new',
+        headless: true,
         args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
