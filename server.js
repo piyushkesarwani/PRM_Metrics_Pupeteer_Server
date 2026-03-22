@@ -140,17 +140,28 @@ async function getSfToken() {
 
 // ─── Launch Browser ───────────────────────────────────────────────────────────
 function launchBrowser() {
+    // return puppeteer.launch({
+    //     headless: 'new',
+    //     executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || null,
+    //     args: [
+    //         '--no-sandbox',
+    //         '--disable-setuid-sandbox',
+    //         '--disable-dev-shm-usage',
+    //         '--disable-gpu',
+    //         ...(isWindows ? [] : ['--single-process'])
+    //     ]
+    // });
+
     return puppeteer.launch({
         headless: 'new',
-        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || null,
         args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
             '--disable-dev-shm-usage',
-            '--disable-gpu',
-            ...(isWindows ? [] : ['--single-process'])
+            '--disable-gpu'
         ]
     });
+
 }
 
 // ─── Safe navigation — swallows frame detach errors from SF redirects ─────────
